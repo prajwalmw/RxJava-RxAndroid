@@ -27,10 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
         stringObservable = Observable.just("Bitch, I m learning Rx!!!");
 
-        stringObservable
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(disposableObserver);
 
 /*
         stringObserver = new Observer<String>() {
@@ -72,5 +68,16 @@ public class MainActivity extends AppCompatActivity {
 
            }
        };
+
+        stringObservable
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(disposableObserver);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        disposableObserver.dispose();
     }
 }

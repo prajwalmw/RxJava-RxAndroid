@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textview);
 
-        stringObservable = Observable.just(R.drawable.ic_launcher_background);
+        stringObservable = Observable.just(R.drawable.scene);
 
 
 /*
